@@ -21,33 +21,49 @@
       margin: 0;
       font-size: 2em;
     }
-    .container {
-      max-width: 1000px;
-      margin: 30px auto;
-      padding: 0 20px;
-    }
-    .section {
-      background: white;
-      margin-bottom: 15px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      overflow: hidden;
-    }
-    .section-header {
-      padding: 15px 20px;
-      cursor: pointer;
+
+    .nav-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       background-color: #34495e;
+      padding: 10px;
+    }
+    .nav-item {
+      background-color: #2c3e50;
       color: white;
-      font-weight: bold;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+      position: relative;
       transition: background-color 0.3s;
     }
-    .section-header:hover {
-      background-color: #2c3e50;
+    .nav-item:hover {
+      background-color: #1abc9c;
     }
+    .arrow {
+      display: inline-block;
+      margin-left: 10px;
+      transition: transform 0.3s ease;
+    }
+    .arrow.rotate {
+      transform: rotate(90deg);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+
     .subsections {
       display: none;
-      padding: 15px 20px;
       background-color: #ecf0f1;
+      margin: 10px 0;
+      padding: 15px 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
     .subsections ul {
       list-style: none;
@@ -73,105 +89,68 @@
     <p>Your gateway to smart investing</p>
   </header>
 
-  <div class="container">
+  <div class="nav-bar" id="navBar">
+    <!-- Navigation items will be injected here -->
+  </div>
 
-    <!-- Existing Sections -->
-    <div class="section"><div class="section-header" onclick="toggleSection(this)">India Brokers</div>
-      <div class="subsections"><ul>
-        <li>Discount Broker</li>
-        <li>Full-Service Broker</li>
-        <li>TOP Broker as per Active Client (Article)</li>
-      </ul></div>
-    </div>
-
-    <div class="section"><div class="section-header" onclick="toggleSection(this)">Brokers Review</div>
-      <div class="subsections"><ul>
-        <li>Zerodha</li><li>Upstox</li><li>AngelOne</li><li>Groww</li><li>ICICI Direct</li><li>HDFC Securities</li>
-        <li>Kotak Securities</li><li>Axis Direct</li><li>Motilal Oswal</li><li>Sharekhan</li><li>5Paisa</li><li>Paytm Money</li>
-        <li>Fyers</li><li>ProStocks</li><li>TradeSmart</li><li>Choice Broking</li><li>SMC Global</li><li>Reliance Securities</li>
-        <li>SBICAP Securities</li><li>Ventura Securities</li>
-      </ul></div>
-    </div>
-
-    <div class="section"><div class="section-header" onclick="toggleSection(this)">Compare Brokers</div>
-      <div class="subsections"><ul><li>Side-by-side comparison of fees, platforms, and features</li></ul></div>
-    </div>
-
-    <div class="section"><div class="section-header" onclick="toggleSection(this)">IPO</div>
-      <div class="subsections"><ul>
-        <li>IPO Guide</li><li>How to apply from Bank</li><li>How to apply from Broker</li><li>Current IPO</li>
-      </ul></div>
-    </div>
-
-    <div class="section"><div class="section-header" onclick="toggleSection(this)">Demat Accounts</div>
-      <div class="subsections"><ul>
-        <li>Individual</li><li>NRI</li><li>HUF</li><li>Corporate</li><li>Partnership Firms</li><li>LLP</li>
-        <li>Corporate Housing Society</li><li>Minor</li>
-      </ul></div>
-    </div>
-
-    <div class="section"><div class="section-header" onclick="toggleSection(this)">Investment Options</div>
-      <div class="subsections"><ul>
-        <li>NCD</li><li>Bonds</li><li>AIF (Alternative Investment Fund)</li>
-      </ul></div>
-    </div>
-
-    <div class="section"><div class="section-header" onclick="toggleSection(this)">Education</div>
-      <div class="subsections"><ul>
-        <li>Technical Analysis</li><li>Fundamental Analysis</li><li>Future and Options</li>
-      </ul></div>
-    </div>
-
-    <div class="section"><div class="section-header" onclick="toggleSection(this)">Calculators</div>
-      <div class="subsections"><ul>
-        <li>Brokerage Calculator</li><li>Margin Calculator</li><li>Interest Calculator</li><li>Returns Calculator</li>
-      </ul></div>
-    </div>
-
-    <!-- New Sections -->
-    <div class="section"><div class="section-header" onclick="toggleSection(this)">Find Broker</div>
-      <div class="subsections"><ul>
-        <li>Search by features, pricing, and user reviews</li>
-      </ul></div>
-    </div>
-
-    <div class="section"><div class="section-header" onclick="toggleSection(this)">Daily News / Update</div>
-      <div class="subsections"><ul>
-        <li>Market headlines</li><li>Broker announcements</li><li>Regulatory updates</li>
-      </ul></div>
-    </div>
-
-    <div class="section"><div class="section-header" onclick="toggleSection(this)">Live Data</div>
-      <div class="subsections"><ul>
-        <li>Max Pain</li><li>Gainer and Loser</li><li>Nifty Trend / Bank Nifty</li><li>Sensex Trend</li>
-        <li>Volume Shocker</li><li>Result Calendar</li><li>OFS Sale</li><li>Right Issue</li><li>Stock Trading Holidays</li>
-      </ul></div>
-    </div>
-
-    <div class="section"><div class="section-header" onclick="toggleSection(this)">FAQ for All Brokers</div>
-      <div class="subsections"><ul>
-        <li>Common questions across platforms</li><li>Account opening, charges, support</li>
-      </ul></div>
-    </div>
-
-    <div class="section"><div class="section-header" onclick="toggleSection(this)">Blog</div>
-      <div class="subsections"><ul>
-        <li>Category by Broker</li><li>Must Read Section</li><li>Industry or Sector-wise Update</li>
-      </ul></div>
-    </div>
-
-    <div class="section"><div class="section-header" onclick="toggleSection(this)">Contact Us</div>
-      <div class="subsections"><ul>
-        <li>Email Support</li><li>Live Chat</li><li>Feedback Form</li>
-      </ul></div>
-    </div>
-
+  <div class="container" id="contentContainer">
+    <!-- Subsections will be injected here -->
   </div>
 
   <script>
-    function toggleSection(header) {
-      const section = header.nextElementSibling;
-      section.style.display = section.style.display === 'block' ? 'none' : 'block';
+    const sections = [
+      { title: "India Brokers", items: ["Discount Broker", "Full-Service Broker", "TOP Broker as per Active Client (Article)"] },
+      { title: "Brokers Review", items: ["Zerodha", "Upstox", "AngelOne", "Groww", "ICICI Direct", "HDFC Securities", "Kotak Securities", "Axis Direct", "Motilal Oswal", "Sharekhan", "5Paisa", "Paytm Money", "Fyers", "ProStocks", "TradeSmart", "Choice Broking", "SMC Global", "Reliance Securities", "SBICAP Securities", "Ventura Securities"] },
+      { title: "Compare Brokers", items: ["Side-by-side comparison of fees, platforms, and features"] },
+      { title: "IPO", items: ["IPO Guide", "How to apply from Bank", "How to apply from Broker", "Current IPO"] },
+      { title: "Demat Accounts", items: ["Individual", "NRI", "HUF", "Corporate", "Partnership Firms", "LLP", "Corporate Housing Society", "Minor"] },
+      { title: "Investment Options", items: ["NCD", "Bonds", "AIF (Alternative Investment Fund)"] },
+      { title: "Education", items: ["Technical Analysis", "Fundamental Analysis", "Future and Options"] },
+      { title: "Calculators", items: ["Brokerage Calculator", "Margin Calculator", "Interest Calculator", "Returns Calculator"] },
+      { title: "Find Broker", items: ["Search by features, pricing, and user reviews"] },
+      { title: "Daily News / Update", items: ["Market headlines", "Broker announcements", "Regulatory updates"] },
+      { title: "Live Data", items: ["Max Pain", "Gainer and Loser", "Nifty Trend / Bank Nifty", "Sensex Trend", "Volume Shocker", "Result Calendar", "OFS Sale", "Right Issue", "Stock Trading Holidays"] },
+      { title: "FAQ for All Brokers", items: ["Common questions across platforms", "Account opening, charges, support"] },
+      { title: "Blog", items: ["Category by Broker", "Must Read Section", "Industry or Sector-wise Update"] },
+      { title: "Contact Us", items: ["Email Support", "Live Chat", "Feedback Form"] }
+    ];
+
+    const navBar = document.getElementById('navBar');
+    const contentContainer = document.getElementById('contentContainer');
+
+    sections.forEach((section, index) => {
+      const navItem = document.createElement('div');
+      navItem.className = 'nav-item';
+      navItem.innerHTML = `${section.title} <span class="arrow">&#9654;</span>`;
+      navItem.onclick = () => toggleSection(index);
+      navBar.appendChild(navItem);
+
+      const subsectionDiv = document.createElement('div');
+      subsectionDiv.className = 'subsections';
+      const ul = document.createElement('ul');
+      section.items.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        ul.appendChild(li);
+      });
+      subsectionDiv.appendChild(ul);
+      contentContainer.appendChild(subsectionDiv);
+    });
+
+    function toggleSection(index) {
+      const allSubsections = document.querySelectorAll('.subsections');
+      const allArrows = document.querySelectorAll('.arrow');
+
+      allSubsections.forEach((div, i) => {
+        if (i === index) {
+          const isVisible = div.style.display === 'block';
+          div.style.display = isVisible ? 'none' : 'block';
+          allArrows[i].classList.toggle('rotate', !isVisible);
+        } else {
+          div.style.display = 'none';
+          allArrows[i].classList.remove('rotate');
+        }
+      });
     }
   </script>
 
