@@ -21,49 +21,48 @@
       margin: 0;
       font-size: 2em;
     }
-    nav {
-      background-color: #34495e;
-      padding: 10px;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 10px 15px;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    section {
+    .container {
       max-width: 1000px;
       margin: 30px auto;
+      padding: 0 20px;
+    }
+    .section {
       background: white;
-      padding: 20px;
+      margin-bottom: 15px;
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
     }
-    section h2 {
-      color: #2c3e50;
-      border-bottom: 2px solid #ecf0f1;
-      padding-bottom: 5px;
+    .section-header {
+      padding: 15px 20px;
+      cursor: pointer;
+      background-color: #34495e;
+      color: white;
+      font-weight: bold;
+      transition: background-color 0.3s;
     }
-    ul {
+    .section-header:hover {
+      background-color: #2c3e50;
+    }
+    .subsections {
+      display: none;
+      padding: 15px 20px;
+      background-color: #ecf0f1;
+    }
+    .subsections ul {
       list-style: none;
       padding-left: 0;
+      margin: 0;
     }
-    li {
-      padding: 8px 0;
-      border-bottom: 1px solid #eee;
+    .subsections li {
+      padding: 8px 10px;
+      margin-bottom: 5px;
+      background-color: #dfe6e9;
+      border-left: 5px solid #3498db;
+      transition: background-color 0.3s;
     }
-    li:last-child {
-      border-bottom: none;
-    }
-    .subsection {
-      margin-left: 20px;
-      color: #7f8c8d;
+    .subsections li:hover {
+      background-color: #b2bec3;
     }
   </style>
 </head>
@@ -74,110 +73,56 @@
     <p>Your gateway to smart investing</p>
   </header>
 
-  <nav>
-    <a href="#india-brokers">India Brokers</a>
-    <a href="#brokers-review">Brokers Review</a>
-    <a href="#compare-brokers">Compare Brokers</a>
-    <a href="#ipo">IPO</a>
-    <a href="#demat-accounts">Demat Accounts</a>
-    <a href="#investment-options">Investment Options</a>
-    <a href="#education">Education</a>
-    <a href="#calculators">Calculators</a>
-  </nav>
+  <div class="container">
 
-  <section id="india-brokers">
-    <h2>India Brokers</h2>
-    <ul>
-      <li>Discount Brokers <div class="subsection">Low-cost trading platforms</div></li>
-      <li>Full-Service Brokers <div class="subsection">Advisory + trading services</div></li>
-      <li>Top Brokers by Active Clients <div class="subsection">Article: Market share insights</div></li>
-    </ul>
-  </section>
+    <!-- Template for each section -->
+    <div class="section">
+      <div class="section-header" onclick="toggleSection(this)">India Brokers</div>
+      <div class="subsections">
+        <ul>
+          <li>Discount Broker</li>
+          <li>Full-Service Broker</li>
+          <li>TOP Broker as per Active Client (Article)</li>
+        </ul>
+      </div>
+    </div>
 
-  <section id="brokers-review">
-    <h2>Brokers Review</h2>
-    <ul>
-      <li>Zerodha</li>
-      <li>Upstox</li>
-      <li>AngelOne</li>
-      <li>Groww</li>
-      <li>ICICI Direct</li>
-      <li>HDFC Securities</li>
-      <li>Kotak Securities</li>
-      <li>Axis Direct</li>
-      <li>Motilal Oswal</li>
-      <li>Sharekhan</li>
-      <li>5Paisa</li>
-      <li>Paytm Money</li>
-      <li>Fyers</li>
-      <li>ProStocks</li>
-      <li>TradeSmart</li>
-      <li>Choice Broking</li>
-      <li>SMC Global</li>
-      <li>Reliance Securities</li>
-      <li>SBICAP Securities</li>
-      <li>Ventura Securities</li>
-    </ul>
-  </section>
+    <div class="section">
+      <div class="section-header" onclick="toggleSection(this)">Brokers Review</div>
+      <div class="subsections">
+        <ul>
+          <li>Zerodha</li>
+          <li>Upstox</li>
+          <li>AngelOne</li>
+          <li>Groww</li>
+          <li>ICICI Direct</li>
+          <li>HDFC Securities</li>
+          <li>Kotak Securities</li>
+          <li>Axis Direct</li>
+          <li>Motilal Oswal</li>
+          <li>Sharekhan</li>
+          <li>5Paisa</li>
+          <li>Paytm Money</li>
+          <li>Fyers</li>
+          <li>ProStocks</li>
+          <li>TradeSmart</li>
+          <li>Choice Broking</li>
+          <li>SMC Global</li>
+          <li>Reliance Securities</li>
+          <li>SBICAP Securities</li>
+          <li>Ventura Securities</li>
+        </ul>
+      </div>
+    </div>
 
-  <section id="compare-brokers">
-    <h2>Compare Brokers</h2>
-    <ul>
-      <li>Side-by-side comparison of fees, platforms, and features</li>
-    </ul>
-  </section>
+    <div class="section">
+      <div class="section-header" onclick="toggleSection(this)">Compare Brokers</div>
+      <div class="subsections">
+        <ul>
+          <li>Side-by-side comparison of fees, platforms, and features</li>
+        </ul>
+      </div>
+    </div>
 
-  <section id="ipo">
-    <h2>IPO</h2>
-    <ul>
-      <li>IPO Guide <div class="subsection">Step-by-step process</div></li>
-      <li>How to Apply from Bank <div class="subsection">Using ASBA facility</div></li>
-      <li>How to Apply from Broker <div class="subsection">Broker platform walkthrough</div></li>
-      <li>Current IPOs <div class="subsection">Live and upcoming issues</div></li>
-    </ul>
-  </section>
-
-  <section id="demat-accounts">
-    <h2>Demat Accounts</h2>
-    <ul>
-      <li>Individual</li>
-      <li>NRI</li>
-      <li>HUF</li>
-      <li>Corporate</li>
-      <li>Partnership Firms</li>
-      <li>LLP</li>
-      <li>Corporate Housing Society</li>
-      <li>Minor</li>
-    </ul>
-  </section>
-
-  <section id="investment-options">
-    <h2>Investment Options</h2>
-    <ul>
-      <li>NCD (Non-Convertible Debentures)</li>
-      <li>Bonds</li>
-      <li>AIF (Alternative Investment Fund)</li>
-    </ul>
-  </section>
-
-  <section id="education">
-    <h2>Education</h2>
-    <ul>
-      <li>Technical Analysis</li>
-      <li>Fundamental Analysis</li>
-      <li>Futures and Options</li>
-    </ul>
-  </section>
-
-  <section id="calculators">
-    <h2>Calculators</h2>
-    <ul>
-      <li>Brokerage Calculator</li>
-      <li>Margin Calculator</li>
-      <li>Interest Calculator</li>
-      <li>Returns Calculator</li>
-    </ul>
-  </section>
-
-</body>
-</html>
+    <div class="section">
+      <div class="section-header" onclick="toggle
