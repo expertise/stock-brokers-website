@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interest Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    .calculator {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 500px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px;
+      background: #3498db;
+      color: white;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover {
+      background: #2980b9;
+    }
+    .result {
+      margin-top: 20px;
+      background: #ecf0f1;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    .formula {
+      font-style: italic;
+      color: #7f8c8d;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Interest Calculator</h1>
+  <div class="calculator">
+    <label for="type">Interest Type:</label>
+    <select id="type">
+      <option value="simple">Simple Interest</option>
+      <option value="compound">Compound Interest</option>
+    </select>
+
+    <label for="principal">Principal (₹):</label>
+    <input type="number" id="principal" placeholder="Enter principal amount">
+
+    <label for="rate">Rate (% per annum):</label>
+    <input type="number" id="rate" placeholder="Enter interest rate">
+
+    <label for="time">Time (years):</label>
+    <input type="number" id="time" placeholder="Enter time in years">
+
+    <label for="frequency" id="compoundLabel" style="display:none;">Compounding Frequency (per year):</label>
+    <input type="number" id="frequency" value="1" style="display:none;" placeholder="e.g. 1 for yearly, 4 for quarterly">
+
+    <button onclick="calculateInterest()">Calculate</button>
+
+    <div class="result" id="result"></div>
+    <div class="formula" id="formula"></div>
+  </div>
+
+  <script>
+    const typeSelect = document.getElementById('type');
+    const compoundLabel = document.getElementById('compoundLabel');
+    const frequencyInput = document.getElementById('frequency');
+
+    typeSelect.addEventListener('change', () => {
+      if (typeSelect.value === 'compound') {
+        compoundLabel.style.display = 'block';
+        frequencyInput.style.display = 'block';
+      } else {
+        compoundLabel.style.display = 'none';
+        frequencyInput.style.display = 'none';
+      }
+    });
+
+    function calculateInterest() {
+      const type = document.getElementById('type').value;
+      const P = parseFloat(document.getElementById('principal').value);
+      const R = parseFloat(document.getElementById('rate').value);
+      const T = parseFloat(document.getElementById('time').value);
+      const N = parseFloat(document.getElementById('frequency').value);
+
+      let interest = 0;
+      let formulaText = '';
+
+      if (type === 'simple') {
+        interest = (P * R * T) / 100;
+        formulaText = 'Simple Interest = (P × R × T) / 100';
+      } else {
+        const amount = P * Math.pow((1 + R / (100 * N)), N * T);
+        interest = amount - P;
+        formulaText = 'Compound Interest = P × (1 + R / (100 × N))^(N × T) - P';
+      }
+
+      document.getElementById('result').innerHTML = `<strong>Interest:</strong> ₹${interest.toFixed(2)}`;
+      document.getElementById('formula').innerText = formulaText;
+    }
+  </script>
+</body>
+</html>
